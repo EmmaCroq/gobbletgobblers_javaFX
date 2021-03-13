@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<AnchorPane xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gobblets.MainController">
+	<children>
+		<VBox layoutX="3.0" prefHeight="444.0" prefWidth="601.0" style="-fx-background-color: #fff3e2;">
+			<children>
+				<Label alignment="CENTER" contentDisplay="CENTER" prefHeight="30.0" prefWidth="616.0" text="HELP" textAlignment="CENTER" textFill="#211bcd">
+					<font>
+						<Font name="System Bold" size="20.0" />
+					</font>
+				</Label>
+				<Label alignment="CENTER" contentDisplay="CENTER" prefHeight="40.0" prefWidth="666.0" text="Description of the project" textAlignment="CENTER">
+					<font>
+						<Font name="System Bold" size="12.0" />
+					</font>
+				</Label>
+				<Label alignment="CENTER" prefHeight="37.0" prefWidth="601.0" text="This project aims to implement a two-player game, similar to the Tic-Tac-Toe game. The rules of the games are described below." textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="CENTER" prefHeight="41.0" prefWidth="601.0" text="The game is played by two players on a three by three square board, although variations can be played on larger boards." textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="TOP_LEFT" prefHeight="21.0" prefWidth="620.0" text="The pieces are of three different sizes (large, medium, small), each player having two of each size." textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="TOP_LEFT" prefHeight="44.0" prefWidth="611.0" text="During the game, the players alternately perform a movement which consists of:" textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="TOP_LEFT" prefHeight="17.0" prefWidth="641.0" text="  -  add a piece from their collection to the table.">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="TOP_LEFT" prefHeight="46.0" prefWidth="657.0" text="  -  move one of its visible pieces already on the board to another box." wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="CENTER" prefHeight="38.0" prefWidth="601.0" text="A piece can be placed either on an empty box, or on a box containing only smaller pieces, regardless of the owner of the piece." textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="CENTER" prefHeight="45.0" prefWidth="601.0" text="In the latter case, the piece covers and hides the smallest pieces. When a piece placed on other pieces is moved by one square, the largest covered piece is revealed and can be played in a later round." textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets left="30.0" right="30.0" />
+					</padding>
+				</Label>
+				<Label alignment="CENTER" prefHeight="75.0" prefWidth="601.0" text="The game is won by the first player who manages to make a visible line of his pieces across the board (on a line, column or diagonal, as in Tic-Tac-Toe.)" textAlignment="JUSTIFY" wrapText="true">
+					<padding>
+						<Insets bottom="30.0" left="30.0" right="30.0" />
+					</padding>
+				</Label>
+			</children>
+		</VBox>
+	</children>
+</AnchorPane>

@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.ColorPicker?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.paint.Color?>
+<?import javafx.scene.text.Font?>
+
+<VBox fx:id="roote" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="600.0" style="-fx-background-color: #fff3e2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gobblets.MainController">
+	<children>
+		<MenuBar prefHeight="6.0" prefWidth="600.0">
+			<menus>
+				<Menu mnemonicParsing="false" text="Game">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#MenuNewGame" onMenuValidation="#MenuNewGame" text="New Game" />
+						<MenuItem mnemonicParsing="false" text="Load" />
+						<MenuItem mnemonicParsing="false" onAction="#doExit" onMenuValidation="#doExit" text="Exit" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Language">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#putFrench" text="Français" />
+						<MenuItem mnemonicParsing="false" onAction="#putEnglish" text="English" />
+						<MenuItem mnemonicParsing="false" onAction="#putGerman" text="Deutsche" />
+					</items>
+				</Menu>
+				<Menu mnemonicParsing="false" text="Other">
+					<items>
+						<MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+						<MenuItem mnemonicParsing="false" onAction="#help" text="Help" />
+					</items>
+				</Menu>
+			</menus>
+			<effect>
+				<DropShadow />
+			</effect>
+			<cursor>
+				<Cursor fx:constant="DEFAULT" />
+			</cursor>
+			<VBox.margin>
+				<Insets bottom="25.0" />
+			</VBox.margin>
+		</MenuBar>
+		<HBox prefHeight="37.0" prefWidth="600.0">
+			<children>
+				<Label fx:id="ChoixNbJoueur" prefHeight="31.0" prefWidth="257.0" text="Choose the number of players :">
+					<HBox.margin>
+						<Insets left="50.0" />
+					</HBox.margin>
+					<font>
+						<Font size="14.0" />
+					</font>
+				</Label>
+				<RadioButton fx:id="RadioButton1" mnemonicParsing="false" onAction="#RadioButton1" text="1">
+					<HBox.margin>
+						<Insets right="30.0" top="8.0" />
+					</HBox.margin>
+				</RadioButton>
+				<RadioButton fx:id="RadioButton2" mnemonicParsing="false" onAction="#RadioButton2" selected="true" text="2">
+					<HBox.margin>
+						<Insets top="8.0" />
+					</HBox.margin>
+				</RadioButton>
+			</children>
+		</HBox>
+		<HBox prefHeight="236.0" prefWidth="600.0">
+			<children>
+				<VBox maxWidth="-Infinity" prefHeight="236.0" prefWidth="230.0">
+					<children>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="player" prefHeight="40.0" text="Player 1">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+							<font>
+								<Font name="System Bold" size="16.0" />
+							</font>
+							<opaqueInsets>
+								<Insets />
+							</opaqueInsets>
+						</Label>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="pseudo" prefHeight="40.0" prefWidth="150.0" text="Pseudo :">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+						</Label>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="color" prefHeight="40.0" prefWidth="280.0" text="Color :">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+						</Label>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="text13" prefHeight="40.0" prefWidth="249.0" text="Player 2">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+							<font>
+								<Font name="System Bold" size="16.0" />
+							</font>
+						</Label>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="text14" prefHeight="40.0" prefWidth="150.0" text="Pseudo :">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+						</Label>
+						<Separator prefWidth="200.0" />
+						<Label fx:id="text15" prefHeight="40.0" prefWidth="150.0" text="Color :">
+							<padding>
+								<Insets left="50.0" />
+							</padding>
+						</Label>
+						<Separator prefWidth="200.0" />
+					</children>
+				</VBox>
+				<VBox prefHeight="41.0" prefWidth="422.0">
+					<children>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+						</Separator>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets top="36.0" />
+							</VBox.margin>
+						</Separator>
+						<TextField fx:id="textField1" maxWidth="-Infinity" onKeyReleased="#memePseudo" prefHeight="25.0" prefWidth="300.0" promptText="Billy">
+							<VBox.margin>
+								<Insets top="5.0" />
+							</VBox.margin>
+						</TextField>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets top="6.0" />
+							</VBox.margin>
+						</Separator>
+						<ColorPicker fx:id="colorPiker1" editable="true" onAction="#memeCouleur">
+							<VBox.margin>
+								<Insets bottom="5.5" top="5.5" />
+							</VBox.margin>
+						</ColorPicker>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets />
+							</VBox.margin>
+						</Separator>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets top="36.0" />
+							</VBox.margin>
+						</Separator>
+						<TextField fx:id="textField2" maxWidth="-Infinity" onKeyReleased="#memePseudo" prefWidth="300.0" promptText="Bob">
+							<VBox.margin>
+								<Insets top="5.0" />
+							</VBox.margin>
+						</TextField>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets top="6.0" />
+							</VBox.margin>
+						</Separator>
+						<ColorPicker fx:id="colorPiker2" onAction="#memeCouleur">
+							<VBox.margin>
+								<Insets bottom="-30.5" top="5.5" />
+							</VBox.margin>
+							<value>
+								<Color blue="0.0" green="0.0" red="1.0" />
+							</value>
+						</ColorPicker>
+						<Separator prefWidth="200.0">
+							<VBox.margin>
+								<Insets top="36.0" />
+							</VBox.margin>
+						</Separator>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+		<HBox prefHeight="51.0" prefWidth="600.0">
+			<children>
+				<VBox prefHeight="28.0" prefWidth="458.0">
+					<children>
+						<Label fx:id="errorPseudo" textFill="RED" />
+						<Label fx:id="errorPseudo2" textFill="RED" />
+						<Label fx:id="errorColor" textFill="RED" />
+					</children>
+				</VBox>
+				<VBox prefHeight="37.0" prefWidth="100.0">
+					<children>
+						<Button fx:id="starter" mnemonicParsing="false" onAction="#testNew" prefWidth="121.0" text="Start a game !">
+							<VBox.margin>
+								<Insets top="10.0" />
+							</VBox.margin>
+						</Button>
+					</children>
+				</VBox>
+			</children>
+		</HBox>
+	</children>
+</VBox>

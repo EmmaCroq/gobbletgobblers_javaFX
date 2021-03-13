@@ -1,0 +1,213 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.Cursor?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.effect.DropShadow?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.ColumnConstraints?>
+<?import javafx.scene.layout.GridPane?>
+<?import javafx.scene.layout.RowConstraints?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+
+<VBox maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="377.0" prefWidth="600.0" style="-fx-background-color: #fff3e2;" xmlns="http://javafx.com/javafx/11.0.1" xmlns:fx="http://javafx.com/fxml/1" fx:controller="gobblets.BoardController">
+	<children>
+		<BorderPane prefHeight="383.0" prefWidth="600.0">
+			<top>
+				<MenuBar prefHeight="6.0" prefWidth="600.0" BorderPane.alignment="CENTER">
+					<menus>
+						<Menu mnemonicParsing="false" text="Game">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#MenuNewGame" onMenuValidation="#MenuNewGame" text="New Game" />
+								<MenuItem mnemonicParsing="false" text="Save" />
+								<MenuItem mnemonicParsing="false" text="Load" />
+								<MenuItem mnemonicParsing="false" onAction="#doExit" onMenuValidation="#doExit" text="Exit" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Language">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#putFrench" text="Français" />
+								<MenuItem mnemonicParsing="false" onAction="#putEnglish" text="English" />
+								<MenuItem mnemonicParsing="false" onAction="#putGerman" text="Deutsche" />
+							</items>
+						</Menu>
+						<Menu mnemonicParsing="false" text="Other">
+							<items>
+								<MenuItem mnemonicParsing="false" onAction="#about" text="About" />
+								<MenuItem mnemonicParsing="false" onAction="#help" text="Help" />
+							</items>
+						</Menu>
+					</menus>
+					<effect>
+						<DropShadow />
+					</effect>
+					<cursor>
+						<Cursor fx:constant="DEFAULT" />
+					</cursor>
+				</MenuBar>
+			</top>
+			<bottom>
+				<Label fx:id="stateBar" alignment="CENTER" contentDisplay="CENTER" BorderPane.alignment="CENTER">
+					<BorderPane.margin>
+						<Insets bottom="5.0" />
+					</BorderPane.margin>
+					<font>
+						<Font name="System Bold Italic" size="20.0" />
+					</font>
+				</Label>
+			</bottom>
+			<center>
+				<GridPane fx:id="gridPlateau" gridLinesVisible="true" onDragDropped="#dropPlacerPiece" onDragOver="#preparePlacerPiece" prefHeight="235.0" prefWidth="108.0" style="-fx-background-color: #ffffff;" BorderPane.alignment="CENTER">
+					<columnConstraints>
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+						<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+					</columnConstraints>
+					<rowConstraints>
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+						<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+					</rowConstraints>
+					<BorderPane.margin>
+						<Insets bottom="50.0" left="40.0" right="40.0" top="50.0" />
+					</BorderPane.margin>
+               <children>
+                  <Label fx:id="case00" alignment="CENTER" contentDisplay="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" textAlignment="CENTER" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label fx:id="case01" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" textAlignment="CENTER" GridPane.columnIndex="1" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label fx:id="case02" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" textAlignment="CENTER" GridPane.columnIndex="2" GridPane.halignment="CENTER" GridPane.valignment="CENTER" />
+                  <Label fx:id="case10" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.rowIndex="1" />
+                  <Label fx:id="case11" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="1" />
+                  <Label fx:id="case12" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="1" />
+                  <Label fx:id="case20" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.rowIndex="2" />
+                  <Label fx:id="case21" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.columnIndex="1" GridPane.rowIndex="2" />
+                  <Label fx:id="case22" alignment="CENTER" onDragOver="#casePlateauOver" prefHeight="62.0" prefWidth="76.0" GridPane.columnIndex="2" GridPane.rowIndex="2" />
+               </children>
+				</GridPane>
+			</center>
+			<left>
+				<VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+					<children>
+						<Label fx:id="player1" alignment="CENTER" contentDisplay="CENTER">
+							<VBox.margin>
+								<Insets left="60.0" top="50.0" />
+							</VBox.margin>
+							<font>
+								<Font size="16.0" />
+							</font>
+						</Label>
+						<GridPane fx:id="gridMaison1" alignment="CENTER" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#dragMaison1" prefHeight="60.0" prefWidth="100.0" style="-fx-background-color: #ffffff;">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+							</rowConstraints>
+							<VBox.margin>
+								<Insets left="40.0" top="70.0" />
+							</VBox.margin>
+							<children>
+								<Label fx:id="m100" alignment="CENTER" contentDisplay="CENTER" text="o">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m101" text="O" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m102" text="\@" GridPane.columnIndex="2">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m110" alignment="CENTER" contentDisplay="CENTER" text="o" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m111" text="O" GridPane.columnIndex="1" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m112" text="\@" GridPane.columnIndex="2" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+						</GridPane>
+					</children>
+				</VBox>
+			</left>
+			<right>
+				<VBox prefHeight="200.0" prefWidth="100.0" BorderPane.alignment="CENTER">
+					<children>
+						<Label fx:id="player2" alignment="CENTER" contentDisplay="CENTER" text=" ">
+							<VBox.margin>
+								<Insets left="30.0" top="50.0" />
+							</VBox.margin>
+							<font>
+								<Font size="16.0" />
+							</font>
+						</Label>
+						<GridPane fx:id="gridMaison2" gridLinesVisible="true" maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" onDragDetected="#dragMaison2" prefHeight="60.0" prefWidth="100.0" style="-fx-background-color: #ffffff;">
+							<columnConstraints>
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+								<ColumnConstraints hgrow="SOMETIMES" minWidth="10.0" prefWidth="100.0" />
+							</columnConstraints>
+							<rowConstraints>
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+								<RowConstraints minHeight="10.0" prefHeight="30.0" vgrow="SOMETIMES" />
+							</rowConstraints>
+							<VBox.margin>
+								<Insets right="40.0" top="70.0" />
+							</VBox.margin>
+							<children>
+								<Label fx:id="m200" alignment="CENTER" contentDisplay="CENTER" text="o">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m210" alignment="CENTER" contentDisplay="CENTER" text="o" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m201" text="O" GridPane.columnIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m211" text="O" GridPane.columnIndex="1" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m202" text="\@" GridPane.columnIndex="2">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+								<Label fx:id="m212" text="\@" GridPane.columnIndex="2" GridPane.rowIndex="1">
+									<GridPane.margin>
+										<Insets left="12.0" />
+									</GridPane.margin>
+								</Label>
+							</children>
+						</GridPane>
+					</children>
+				</VBox>
+			</right>
+		</BorderPane>
+	</children>
+</VBox>
